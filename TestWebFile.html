@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<head>
+  <title>Clipboard Testing</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <style>
+
+    html {
+      text-align: center;
+    }
+
+    body {
+      width: 70%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  
+    h1 {
+      color: #311b92;
+    }
+
+    p {
+      color: #512da8;
+    }
+
+    code {
+      background: linear-gradient(45deg, #fce4ec,#f8bbd0);
+      padding: 0px 3px;
+      border-radius: 2px;
+    }
+
+    .input-container {
+      width: 50%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  </style>
+</head>
+<body class="blue lighten-5">
+<h1>Clipboard Testing</h1>
+<p>So javascript is a pretty interesting language. You can't directly take control of 
+  someone's cursor, force them to right-click (well kind of), or really do anything outside
+  of the browser (as it's bounded inside of the browser itself), however I did notice that
+  you can take control of the clipboard regardless of that being outside of the browser
+  itself. See for yourself, press <code>ctrl + V</code> and paste it anywhere.
+</p>
+<div class="input-container">
+  <input placeholder="Try pasting in here!"></input>
+</div>
+<script>
+navigator.clipboard.writeText("gay porn").then(function() {
+  /* clipboard successfully set */
+}, function() {
+  /* clipboard write failed */
+});
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
