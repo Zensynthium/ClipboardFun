@@ -7,10 +7,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <style>
 
-    html {
-      text-align: center;
-    }
-
     body {
       width: 70%;
       margin-left: auto;
@@ -38,7 +34,7 @@
     }
   </style>
 </head>
-<body class="blue lighten-5">
+<body class="center-align blue lighten-5">
 <h1>Clipboard Testing</h1>
 <p>So javascript is a pretty interesting language. You can't directly take control of 
   someone's cursor, force them to right-click (well kind of), or really do anything outside
@@ -50,10 +46,10 @@
   <input placeholder="Try pasting in here!"></input>
 </div>
 <script>
-navigator.clipboard.writeText("gay porn").then(function() {
-  /* clipboard successfully set */
+navigator.clipboard.writeText("Pretty cool trick isn't it?").then(function() {
+  console.log("Successfully copied to clipboard");
 }, function() {
-  /* clipboard write failed */
+  console.log("Couldn't copy to clipboard");
 });
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
