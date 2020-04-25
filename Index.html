@@ -39,7 +39,7 @@
     }
 
     code {
-      background: linear-gradient(45deg, #b3daff,#8284ff);
+      background: linear-gradient(45deg, #b3daff, #8284ff);
       color: #FFFFFF;
       padding: 0px 3px;
       border-radius: 2px;
@@ -70,6 +70,10 @@
       z-index: -100;
       display: inline-block;
 
+    }
+
+    .code-text {
+      color: #444;
     }
 
     .fade-in {
@@ -156,7 +160,7 @@
 <p id="pasteChecker" class="hide">If this works, you should see the text "Pretty cool trick isn't it?" 
   pasted even though you know you didn't copy that. Controlling the clipboard without 
   permission only works on chromium based browsers (Google Chrome, New Microsoft Edge, 
-  Brave, etc), Mozilla, even the above mentioned browsers in mobile form and possibly 
+  Brave, Opera, etc), Mozilla, even the above mentioned browsers in mobile form and possibly 
   others demand permission so the request is denied.
 </p>
 <p>
@@ -178,15 +182,15 @@
   may also be enabled on your computer (disabled by default on Windows 10, possible with <b>Clipboard Manager</b> in Linux).
 </p>
 <p>To really drive this point home, here's another demo that works in 99% of browsers as it's 
-  done with CSS which is rarely filtered. Copy the text below and paste it in the input provided 
+  done with CSS which is rarely filtered. Copy the text "Good Code" below and paste it in the input provided 
   (or anywhere):
 </p>
-<span>Good <span class="pastejack-text">Way To Get Hacked With&nbsp;</span> Code</span>
+<span class="code-text"><u>Good <span class="pastejack-text">Way To Get Hacked With&nbsp;</span> Code</u></span>
 <input placeholder="Another one, really?"></input>
 <p>All in all this is an easy thing to fall for as it can be achieved with CSS and/or Javascript,
   and enticing a user to copy and paste, but once you know what can happen it is an easy thing to avoid.
   It's also worth noting that even with extensions that block all scripts like 
-  <a title="Script/Ad Blocker" href="https://github.com/gorhill/uBlock">uBlock Origin</a> or disabling all Javascript in browser settings, 
+  <a title="Script/Ad Blocker" href="https://github.com/gorhill/uBlock">uBlock Origin (or uMatrix)</a> or disabling all Javascript in browser settings, 
   it can still be done with just CSS, you still have to pay attention. The clipboard by itself 
   can't run scripts/commands, so again just watch where you paste. I used a lot of copy and pasting
   to create this, Happy Pasting!
@@ -260,7 +264,6 @@
   </div>
 </div>
 
-         
 <script>
 navigator.clipboard.writeText("Pretty cool trick isn't it?").then(function() {
   console.log("Successfully copied to clipboard");
