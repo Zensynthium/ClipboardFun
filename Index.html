@@ -5,22 +5,37 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="manifest" href="site.webmanifest">
   <style>
     
     body {
       width: 70%;
       margin-left: auto;
       margin-right: auto;
-      text-shadow: 2px 2px 3px rgb(245, 245, 245);
       line-height: 26px;
     }
   
-    h1 {
+    .card-title {
       color: #26c6da;
     }
 
-    p, input {
+    h2 {
+      font-size: 30px;
+    }
+
+    h3 {
+      font-size: 20px;
+    }
+
+    input {
       color: #4dd0e1;
+    }
+
+    p, span {
+      color: #777;
     }
 
     code {
@@ -31,6 +46,10 @@
       text-shadow: 0px 0px;
     }
 
+    hr {
+      margin: 50px 0px;
+    }
+
     ::placeholder {
       color: #d1c4e9;
     }
@@ -39,6 +58,18 @@
       width: 80%;
       margin-left: auto;
       margin-right: auto;
+    }
+
+    .pastejack-text {
+      color: #ffffff; /* set it to that of the page */
+      font-size: 0px; /* make it small */
+      /* move it out of the way */
+      height: 0px;
+      position: absolute;
+      top: -1000px;
+      z-index: -100;
+      display: inline-block;
+
     }
 
     .fade-in {
@@ -109,21 +140,127 @@
 
   </style>
 </head>
-<body class="center-align blue lighten-5 ">
-<h1 class="fade-in stay-put">Clipboard Testing</h1>
-<p class="fade-in stay-put">Javascript, the premier language of the Web, is a pretty interesting language. You can't
+<body class="center-align fade-in stay-put">
+<h1>Clipboard Testing</h1>
+<p>Javascript, the premier language of the Web, is a pretty interesting language. You can't
   directly take control of someone's cursor, force them to right-click, or really do anything 
-  outsideof the browser without forcing them to download and open something on their actual
-  machine (as javascript is bounded inside of the browser itself). However, I did notice that 
-  you can take control of the clipboard, regardless of that being outside of the browser. See 
-  for yourself, press <code>ctrl + V</code> and paste it anywhere.
+  outside of the browser without forcing them to download and open something on their actual
+  machine (as javascript is bound inside of the browser itself). However, it does have the capability to be abused, 
+  and there are a few exceptions. I noticed that you can take control of the clipboard, 
+  regardless of that being outside of the browser. See for yourself, press 
+  <code>ctrl + V</code> and paste it below (and anywhere else).
 </p>
-<div class="input-container fade-in stay-put">
+<div class="input-container">
   <input placeholder="Try pasting in here!" onpaste="pasteText()"></input>
 </div>
-<p id="pasteChecker" class="hide">It appears this only works on chromium based browsers 
-  (Google Chrome, New Microsoft Edge, Brave, etc). 
+<p id="pasteChecker" class="hide">If this works, you should see the text "Pretty cool trick isn't it?" 
+  pasted even though you know you didn't copy that. Controlling the clipboard without 
+  permission only works on chromium based browsers (Google Chrome, New Microsoft Edge, 
+  Brave, etc), Mozilla, even the above mentioned browsers in mobile form and possibly 
+  others demand permission so the request is denied.
 </p>
+<p>
+  While being able to do this in any browser may come as a shock, it has it's practical
+  uses (any website/application that needs to manipulate read/write to work such as a web extension).
+  <b>Malicious things can only be done this way if:<br><br>1) Text is copy and pasted directly 
+  into a terminal where code can execute <br>2) Information is placed in a sensitive field without
+  being double checked.</b><br><br>The term for malicious things done in this fashion is called 
+  <b>pastejacking.</b> and is mostly a threat to programmers and power users, but anyone can 
+  be vulnerable.</p>
+<p>It's also a best practice to clear your clipboard if you're copying and pasting sensitive
+  information in a public environment where your device is left unattended (i.e. the workplace) 
+  as in one of the links you'll see below, the clipboard can be accessed even without logging into a computer (Windows 10). 
+  Your clipboard can be cleared by copying anything that isn't sensitive (overriding it), however keep in mind 
+  <b>Clipboard History</b> (
+  <a href="https://www.howtogeek.com/351978/using-windows-10s-new-clipboard-history-and-cloud-sync/">Win 10</a> /
+  <a href="https://setapp.com/how-to/how-to-view-clipboard-history-on-mac">Mac</a> /
+  <a href="https://www.addictivetips.com/ubuntu-linux-tips/search-clipboard-history-linux-indicator-bulletin/">Linux</a> )
+  may also be enabled on your computer (disabled by default on Windows 10, possible with <b>Clipboard Manager</b> in Linux).
+</p>
+<p>To really drive this point home, here's another demo that works in 99% of browsers as it's 
+  done with CSS which is rarely filtered. Copy the text below and paste it in the input provided 
+  (or anywhere):
+</p>
+<span>Good <span class="pastejack-text">Way To Get Hacked With&nbsp;</span> Code</span>
+<input placeholder="Another one, really?"></input>
+<p>All in all this is an easy thing to fall for as it can be achieved with CSS and/or Javascript,
+  and enticing a user to copy and paste, but once you know what can happen it is an easy thing to avoid.
+  It's also worth noting that even with extensions that block all scripts like 
+  <a title="Script/Ad Blocker" href="https://github.com/gorhill/uBlock">uBlock Origin</a> or disabling all Javascript in browser settings, 
+  it can still be done with just CSS, you still have to pay attention. The clipboard by itself 
+  can't run scripts/commands, so again just watch where you paste. I used a lot of copy and pasting
+  to create this, Happy Pasting!
+</p>
+<p id="clipReader"></p>
+<h2>Want to learn more about the clipboard?</h2>
+<hr>
+<div class="row">
+  <div class="col s12 m6">
+    <div class="card hoverable"> <!-- Specify Card Color -->
+      <div class="card-content grey-text"> <!-- Specify Card Head Text Color -->
+        <span class="card-title">Accessing the clipboard from the lock screen in Win 10</span>
+        <p class="grey-text">
+          A short article about how you can find input fields (network settings) in the Windows 10 
+          Login interface where you can paste text, uncovering whatever was saved to the clipboard 
+          even without having the proper credentials.
+        </p>
+      </div>
+      <div class="card-action">
+        <a href="https://msitpros.com/?p=3746">msitpros.com/?p=3746</a>
+      </div>
+    </div>
+  </div>
+  <div class="col s12 m6">
+    <div class="card hoverable"> <!-- Specify Card Color -->
+      <div class="card-content grey-text"> <!-- Specify Card Head Text Color -->
+        <span class="card-title">Using a clipboard manager to run commands/scripts</span>
+        <p class="grey-text"> 
+          Normally a clipboard is just for copy and pasting, and is often used to assist in quicker
+          work, especially programming. However, with the power of a clipboard manager you can do
+          some powerful things to possibly improve productivity!
+        </p>
+      </div>
+      <div class="card-action">
+        <a href="https://lifehacker.com/copyq-runs-commands-and-scripts-on-content-copied-to-th-1561705745">lifehacker.com/copyq</a>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col s12 m6">
+    <div class="card hoverable"> <!-- Specify Card Color -->
+      <div class="card-content grey-text"> <!-- Specify Card Head Text Color -->
+        <span class="card-title">An Indepth look at the CSS version of pastejacking</span>
+        <p class="grey-text">
+          This shows off the inner workings of the second demo on this page, showing that
+          multiple lines of code can be hidden inside of text instead of just additional text
+          with their own demo.
+        </p>
+      </div>
+      <div class="card-action">
+        <a href="http://lifepluslinux.blogspot.com/2017/01/look-before-you-paste-from-website-to.html">lifepluslinux.blogspot.com/</a>
+      </div>
+    </div>
+  </div>
+  <div class="col s12 m6">
+    <div class="card hoverable"> <!-- Specify Card Color -->
+      <div class="card-content grey-text"> <!-- Specify Card Head Text Color -->
+        <span class="card-title">Github repository explaining pastejacking and security</span>
+        <p class="grey-text"> 
+          This repository includes examples and information on how to defend your terminal and 
+          <a href="https://medium.com/@fay_jai/what-is-vim-and-why-use-vim-54c67ce3c18e">Vim</a> 
+          (A Text Editor). Though Vim is a text editor it seems code can execute
+          inside of it as well.
+        </p>
+      </div>
+      <div class="card-action">
+        <a href="https://github.com/dxa4481/Pastejacking">github.com/dxa4481/Pastejacking</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+         
 <script>
 navigator.clipboard.writeText("Pretty cool trick isn't it?").then(function() {
   console.log("Successfully copied to clipboard");
@@ -137,6 +274,23 @@ function pasteText() {
   pasteChecker.setAttribute("class", "fade-in");
   setTimeout(() => {  pasteChecker.setAttribute("class", "stay-put"); }, 1500);
 }
+
+/*
+I was wondering if it was possible to read someone's clipboard without user permission
+but I don't think that it is possible, as I haven't seen it documented anywhere except
+for working on Internet Explorer in the 2000s.
+
+The below function can only copy/paste/cut events the user has triggered.
+
+function clipboardMindReader() {
+  var clipContents = ClipboardEvent.clipboardData.getData("text/plain");
+  if (clipContents = "") {
+    console.log("says the clipboard is empty. hmm...")
+  } else {
+  document.getElementbyId("clipReader").innerHTML = clipContents;
+  }
+}
+*/
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
