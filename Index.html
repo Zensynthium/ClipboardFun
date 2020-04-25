@@ -69,7 +69,6 @@
       top: -1000px;
       z-index: -100;
       display: inline-block;
-
     }
 
     .code-text {
@@ -142,7 +141,7 @@
     }
   }
 
-  </style>
+</style>
 </head>
 <body class="center-align fade-in stay-put">
 <h1>Clipboard Testing</h1>
@@ -186,7 +185,9 @@
   (or anywhere):
 </p>
 <span class="code-text"><u>Good <span class="pastejack-text">Way To Get Hacked With&nbsp;</span> Code</u></span>
-<input placeholder="Another one, really?"></input>
+<div class="input-container">
+  <input placeholder="Another one, really?"></input>
+</div>
 <p>All in all this is an easy thing to fall for as it can be achieved with CSS and/or Javascript,
   and enticing a user to copy and paste, but once you know what can happen it is an easy thing to avoid.
   It's also worth noting that even with extensions that block all scripts like 
@@ -251,10 +252,10 @@
       <div class="card-content grey-text"> <!-- Specify Card Head Text Color -->
         <span class="card-title">Github repository explaining pastejacking and security</span>
         <p class="grey-text"> 
-          This repository includes examples and information on how to defend your terminal and 
-          <a href="https://medium.com/@fay_jai/what-is-vim-and-why-use-vim-54c67ce3c18e">Vim</a> 
-          (A Terminal). Though Vim is a text editor it seems code can execute
-          inside of it as well.
+          This repository includes examples and information on how to defend your terminal, 
+          whether it be 
+          <a href="https://medium.com/@fay_jai/what-is-vim-and-why-use-vim-54c67ce3c18e">Vim</a>,
+           or the command prompt in Windows and Mac. Demo 1 was based off of this repository.
         </p>
       </div>
       <div class="card-action">
