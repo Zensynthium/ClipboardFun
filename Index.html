@@ -3,6 +3,8 @@
   <title>Clipboard Testing</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Exploration into the clipboard mechanic in Operating Systems and how browsers can interact with them. Live examples included!">
+  <meta >
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
@@ -12,14 +14,14 @@
   <link rel="stylesheet" href="css/main.css">
 </head>
 <body class="center-align fade-in stay-put">
-<h1>Clipboard Testing</h1>
+<h1>Clipboard Experientation</h1>
 <p>Javascript, the premier language of the Web, is a pretty interesting language. You can't
   directly take control of someone's cursor, force them to right-click, or really do anything 
   outside of the browser without forcing them to download and open something on their actual
-  machine (as javascript is bound inside of the browser itself). However, it does have the capability to be abused, 
+  machine (as Javascript is bound inside of the browser itself). However, it does have the capability to be abused, 
   and there are a few exceptions. I noticed that you can take control of the clipboard, 
   regardless of that being outside of the browser. See for yourself, press 
-  <code>ctrl + V</code> and paste it below (and anywhere else).
+  <code>Ctrl + V</code> and paste it below (and anywhere else).
 </p>
 <div class="input-container">
   <input placeholder="Try pasting in here!" onpaste="pasteText()"></input>
@@ -94,7 +96,7 @@
         </p>
       </div>
       <div class="card-action">
-        <a href="https://lifehacker.com/copyq-runs-commands-and-scripts-on-content-copied-to-th-1561705745">lifehacker.com/copyq</a>
+        <a href="https://lifehacker.com/copyq-runs-commands-and-scripts-on-content-copied-to-th-1561705745">lifehacker.com/copyq..</a>
       </div>
     </div>
   </div>
@@ -103,7 +105,7 @@
   <div class="col s12 m6">
     <div class="card hoverable"> <!-- Specify Card Color -->
       <div class="card-content grey-text"> <!-- Specify Card Head Text Color -->
-        <span class="card-title">An Indepth look at the CSS version of pastejacking</span>
+        <span class="card-title">An In-depth look at the CSS version of pastejacking</span>
         <p class="grey-text">
           This shows off the inner workings of the second demo on this page, showing that
           multiple lines of code can be hidden inside of text instead of just additional text
@@ -132,12 +134,15 @@
     </div>
   </div>
 </div>
+<footer>
+  Written by Anthony Heggin
+</footer>
 
 <script>
 navigator.clipboard.writeText("Pretty cool trick isn't it?").then(function() {
-  console.log("Successfully copied to clipboard");
+  console.log("Successfully copied to clipboard. (Example 1)");
 }, function() {
-  console.log("Couldn't copy to clipboard");
+  console.log("Couldn't copy to clipboard. (Example 1)");
 });
 
 function pasteText() {
