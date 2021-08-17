@@ -1,2 +1,2 @@
 # ClipboardFun
-Just a showcase on how Javascript can use the clipboard in a fun way.
+Just a showcase on how Javascript can utilize the clipboard in an interactive way.
